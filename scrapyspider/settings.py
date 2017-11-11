@@ -14,12 +14,26 @@ BOT_NAME = 'scrapyspider'
 SPIDER_MODULES = ['scrapyspider.spiders']
 NEWSPIDER_MODULE = 'scrapyspider.spiders'
 
+DOWNLOADER_MIDDLEWARES = {
+'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+}
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapyspider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
+
+ITEM_PIPELINES = {
+   'scrapyspider.pipelines.ScrapyspiderPipeline': 300,
+}
 ROBOTSTXT_OBEY = False
+CONCURRENT_REQUESTS = 1
+DOWNLOAD_DELAY = 5
+
+
+IMAGES_STORE = 'E:/test'
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
