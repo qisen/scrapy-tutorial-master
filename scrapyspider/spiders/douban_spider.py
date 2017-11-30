@@ -11,7 +11,7 @@ class DoubanMovieTop250Spider(Spider):
     name = 'jiandan'
     allowed_domains = ["jandan.net"]
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
     }
     start_urls = ["http://jandan.net/ooxx"]
     maxNum = 10
