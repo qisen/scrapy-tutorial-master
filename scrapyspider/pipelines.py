@@ -24,14 +24,7 @@ class ScrapyspiderPipeline(object):
             if os.path.exists(file_name):
                 continue
             with open(file_path, 'wb') as file_writer:
-                print("image_url",image_url)
-                conn = None
-                try:
-                  conn = urllib.request.urlopen(image_url)  # 下载图片
-                except  urllib.error.URLError as e:
-                    print(e.reason)
-                if conn!=None :
-                   file_writer.write(conn.read())
-
+                conn = urllib.urlopen(image_url)  # 下载图片
+                file_writer.write(conn.read())
             file_writer.close()
         return item

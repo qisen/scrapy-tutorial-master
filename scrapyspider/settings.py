@@ -30,10 +30,7 @@ ITEM_PIPELINES = {
 ROBOTSTXT_OBEY = False
 CONCURRENT_REQUESTS = 1
 DOWNLOAD_DELAY = 5
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
-    'example.middlewares.RotateUserAgentMiddleware':400,
-}
+
 
 IMAGES_STORE = 'E:/test'
 
