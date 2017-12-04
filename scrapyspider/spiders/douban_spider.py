@@ -22,16 +22,16 @@ class DoubanMovieTop250Spider(Spider):
     def parse(self, response):
         item = DoubanMovieItem()
         strpp=response.xpath('//img//@src').extract()
-        print("response",response.body)
+        # print("response",response.body)
         # return
-        # strpplist=[]
-        # print("strpp",strpp)
-        # for i in range(len(strpp)):
-        #     strpplist.insert(i,strpp[i] if 'http:' in strpp[i] else ('http:' + strpp[i]))
-        #     item['image_urls'] = strpplist# 提取图片链接
-        #
-        # # print('image_urls',item['image_urls'])
-        # yield item
+        strpplist=[]
+        print("strpp",strpp)
+        for i in range(len(strpp)):
+            strpplist.insert(i,strpp[i] if 'http:' in strpp[i] else ('http:' + strpp[i]))
+            item['image_urls'] = strpplist# 提取图片链接
+
+        # print('image_urls',item['image_urls'])
+        yield item
         self.current = self.current + 1
         if self.maxNum > self.current:
             new_url = response.xpath('//a[@class="previous-comment-page"]//@href').extract_first()  # 翻页
