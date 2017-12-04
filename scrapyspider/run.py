@@ -14,14 +14,21 @@ from scrapy import cmdline
 # cmdline.execute(cmd.split())
 header={
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding':'gzip, deflate, sdch',
+        'Accept-Encoding':'gzip, deflate',
         'Accept-Language':'zh-CN,zh;q=0.8',
-        'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+        'Policy':'no-referrer-when-downgrade',
+        'Cache-Control':'max-age=300',
+        'Fcache':'HIT',
+        'Link':'<http://jandan.net/?p=21183>; rel=shortlink',
+        'Link':'<http://jandan.net/wp-json/>; rel="https://api.w.org/"',
     }
 def main():
     try:
-        req = requests.get("http://jandan.net/ooxx", headers=header, timeout=1000)
+        req = requests.get("https://www.zhihu.com/question/263549941/answer/270693862", headers=header, timeout=1000)
         print("req",req.text)
+        print("req",req.headers)
+        print("req",req.cookies)
     except requests.exceptions.ConnectionError:
         print("cann't connection")
     except requests.exceptions.HTTPError:

@@ -15,7 +15,8 @@ class DoubanMovieTop250Spider(Spider):
     # }
     #http://blog.csdn.net/djd1234567/article/details/50319329   防止屏蔽
     #http://blog.csdn.net/qq_31518899/article/details/76576537  数据存储
-    start_urls = ["http://jandan.net/ooxx"]
+    # http: // m.blog.csdn.net / t1anyuan / article / details / 78644814
+    start_urls = ["https://www.zhihu.com/question/263549941/answer/270693862"]
     maxNum = 10
     current = 0
 
